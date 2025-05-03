@@ -16,11 +16,11 @@ export function HarViewer() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-zinc-800 dark:bg-zinc-900 dark:text-zinc-100">
-      <header className="p-4 bg-zinc-100 dark:bg-zinc-800 shadow-md sticky top-0 z-10">
+      <header className="py-5 px-4 bg-zinc-100 dark:bg-zinc-800 shadow-md sticky top-0 z-10">
         <div className="container mx-auto flex justify-between items-center">
           <h1 className="text-2xl font-bold flex items-center">
             <div className="text-emerald-400">
-              <svg xmlns="http://www.w3.org/2000/svg" width="68" height="24" fill="none">
+              <svg xmlns="http://www.w3.org/2000/svg" width="170" height="60" fill="none" viewBox="0 0 68 24">
                 <g fill="currentColor">
                   <path d="M10.201 4.188H8.93V4H10.2v.188ZM17.2 4.188h-1.27V4h1.27v.188ZM32.6 4.188h-1.27V4h1.27v.188ZM34 4.188H32.73V4h1.272v.188ZM35.4 4.188H34.13V4h1.272v.188ZM36.8 4.188H35.53V4H36.8v.188ZM38.2 4.188H36.93V4H38.2v.188ZM42.4 4.188H41.13V4H42.4v.188ZM43.8 4.188H42.53V4H43.8v.188ZM45.2 4.188H43.93V4H45.2v.188ZM46.6 4.188H45.33V4H46.6v.188ZM48 4.188H46.73V4H48v.188ZM49.4 4.188H48.13V4H49.4v.188ZM50.8 4.188H49.53V4H50.8v.188ZM52.2 4.188H50.93V4H52.2v.188ZM57.8 4.188h-1.271V4H57.8v.188ZM59.2 4.188h-1.272V4H59.2v.188ZM8 7.495V4.37h.33v3.126H8ZM10.8 7.495V4.37h.33v3.126h-.33ZM15 7.495V4.37h.33v3.126H15ZM17.8 7.495V4.37h.33v3.126h-.33ZM24.15 4.631l-.82 2.151h-.35l.82-2.15h.35ZM24.73 4.631l.82 2.151h-.35l-.82-2.15h.35ZM30.4 7.495V4.37h.33v3.126h-.33ZM35.4 7.314H34.13v-.188h1.272v.188ZM36.8 7.314H35.53v-.188H36.8v.188ZM38.73 4.631l.82 2.151h-.35l-.82-2.15h.35ZM40.2 7.495V4.37h.33v3.126h-.33ZM45.2 7.314H43.93v-.188H45.2v.188ZM46.6 7.314H45.33v-.188H46.6v.188ZM48 7.314H46.73v-.188H48v.188ZM49.4 7.314H48.13v-.188H49.4v.188ZM49.93 4.631l.82 2.151h-.35l-.82-2.15h.35Z" />
                   <path d="M52.73 4.631l.82 2.151h-.35l-.82-2.15h.35ZM56.35 4.631l-.82 2.151h-.35l.82-2.15h.35ZM59.15 4.631l-.821 2.151h-.35l.82-2.15h.35ZM8 10.621V7.495h.33v3.126H8ZM10.8 10.621V7.495h.33v3.126h-.33ZM13 10.44h-1.27v-.188H13v.188ZM14.4 10.44h-1.27v-.188h1.27v.188ZM15 10.621V7.495h.33v3.126H15ZM17.8 10.621V7.495h.33v3.126h-.33ZM22.75 7.758l-.82 2.15h-.35l.82-2.15h.35ZM26.13 7.758l.82 2.15h-.35l-.82-2.15h.35ZM30.4 10.621V7.495h.33v3.126h-.33ZM33.2 10.621V7.495h.33v3.126h-.33ZM35.4 10.44H34.13v-.188h1.272v.188ZM36.8 10.44H35.53v-.188H36.8v.188ZM37.094 10.152c.448-.328.712-.76.712-1.319 0-.56-.264-.99-.712-1.32l.185-.246c.537.381.867.919.867 1.566s-.33 1.185-.867 1.566l-.185-.247Z" />
