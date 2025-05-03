@@ -217,7 +217,7 @@ export function HarTable({ harData }: HarTableProps) {
                       isExpanded ? "bg-zinc-50 dark:bg-zinc-800" : ""
                     }`}
                   >
-                    <td className="py-3 px-4 text-sm text-zinc-500">
+                    <td className="py-3 px-4 text-sm text-zinc-500 w-32 whitespace-nowrap overflow-hidden text-ellipsis">
                       {formatDate(entry.startedDateTime)}
                     </td>
                     <td className="py-3 px-4 text-sm">
