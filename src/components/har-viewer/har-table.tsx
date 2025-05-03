@@ -268,23 +268,19 @@ export function HarTable({ harData }: HarTableProps) {
                       <td colSpan={7} className="p-4">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div className="bg-white dark:bg-zinc-900 p-4 rounded-md shadow">
-                            <div className="flex justify-between items-center mb-2">
+                            <div className="mb-2">
                               <h3 className="text-sm font-medium text-emerald-400">Request Details</h3>
-                              <CopyButton 
-                                text={JSON.stringify(entry.request, null, 2)} 
-                                className="hover:bg-zinc-800"
-                              />
                             </div>
                             <div className="mb-4">
-                              <div className="flex justify-between items-center">
-                                <div className="text-xs text-zinc-500 mb-1">URL</div>
-                                <CopyButton text={entry.request.url} className="hover:bg-zinc-800" />
+                              <div className="text-xs text-zinc-500 mb-1">URL</div>
+                              <div className="text-sm break-all flex justify-between items-start">
+                                <span className="mr-2">{entry.request.url}</span>
+                                <CopyButton text={entry.request.url} className="hover:bg-zinc-800 flex-shrink-0 mt-1" />
                               </div>
-                              <div className="text-sm break-all">{entry.request.url}</div>
                             </div>
                             <div className="mb-4">
-                              <div className="flex justify-between items-center">
-                                <h4 className="text-xs text-zinc-500 mb-1">Headers</h4>
+                              <h4 className="text-xs text-zinc-500 mb-1">Headers</h4>
+                              <div className="flex justify-end mb-1">
                                 <CopyButton 
                                   text={entry.request.headers.map(h => `${h.name}: ${h.value}`).join('\n')} 
                                   className="hover:bg-zinc-800" 
@@ -307,8 +303,8 @@ export function HarTable({ harData }: HarTableProps) {
                             </div>
                             {entry.request.postData && (
                               <div>
-                                <div className="flex justify-between items-center">
-                                  <h4 className="text-xs text-zinc-500 mb-1">Request Body</h4>
+                                <h4 className="text-xs text-zinc-500 mb-1">Request Body</h4>
+                                <div className="flex justify-end mb-1">
                                   <CopyButton 
                                     text={entry.request.postData.text || ''} 
                                     className="hover:bg-zinc-800" 
@@ -322,28 +318,22 @@ export function HarTable({ harData }: HarTableProps) {
                           </div>
                           
                           <div className="bg-white dark:bg-zinc-900 p-4 rounded-md shadow">
-                            <div className="flex justify-between items-center mb-2">
+                            <div className="mb-2">
                               <h3 className="text-sm font-medium text-emerald-400">Response Details</h3>
-                              <CopyButton 
-                                text={JSON.stringify(entry.response, null, 2)} 
-                                className="hover:bg-zinc-800"
-                              />
                             </div>
                             <div className="mb-2">
-                              <div className="flex justify-between items-center">
-                                <div className="text-xs text-zinc-500 mb-1">Status</div>
+                              <div className="text-xs text-zinc-500 mb-1">Status</div>
+                              <div className={`text-sm ${getStatusColor(entry.response.status)} flex justify-between items-center`}>
+                                <span>{entry.response.status} {entry.response.statusText}</span>
                                 <CopyButton 
                                   text={`${entry.response.status} ${entry.response.statusText}`}
                                   className="hover:bg-zinc-800"
                                 />
                               </div>
-                              <div className={`text-sm ${getStatusColor(entry.response.status)}`}>
-                                {entry.response.status} {entry.response.statusText}
-                              </div>
                             </div>
                             <div className="mb-4">
-                              <div className="flex justify-between items-center">
-                                <h4 className="text-xs text-zinc-500 mb-1">Headers</h4>
+                              <h4 className="text-xs text-zinc-500 mb-1">Headers</h4>
+                              <div className="flex justify-end mb-1">
                                 <CopyButton 
                                   text={entry.response.headers.map(h => `${h.name}: ${h.value}`).join('\n')} 
                                   className="hover:bg-zinc-800" 
@@ -366,8 +356,8 @@ export function HarTable({ harData }: HarTableProps) {
                             </div>
                             {entry.response.content.text && (
                               <div>
-                                <div className="flex justify-between items-center">
-                                  <h4 className="text-xs text-zinc-500 mb-1">Response Body</h4>
+                                <h4 className="text-xs text-zinc-500 mb-1">Response Body</h4>
+                                <div className="flex justify-end mb-1">
                                   <CopyButton 
                                     text={entry.response.content.encoding === "base64"
                                       ? "[Base64 encoded content]"
