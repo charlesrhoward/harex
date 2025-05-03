@@ -5,6 +5,7 @@ import { HarUploader } from "./har-uploader";
 import { HarTable } from "./har-table";
 import { HarData } from "./har-types";
 import { ThemeToggle } from "../theme-toggle";
+import { Github } from "lucide-react";
 
 export function HarViewer() {
   const [harData, setHarData] = useState<HarData | null>(null);
@@ -21,7 +22,19 @@ export function HarViewer() {
             <span className="text-emerald-400">Harex</span>
             <span className="ml-2">- HAR Examiner</span>
           </h1>
-          <ThemeToggle />
+          <div className="flex items-center gap-3">
+            <a 
+              href="https://github.com/charlesrhoward/harex" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-2 rounded-full hover:bg-zinc-700 transition-colors text-zinc-300 hover:text-white"
+              aria-label="View source on GitHub"
+              title="View source on GitHub"
+            >
+              <Github size={20} />
+            </a>
+            <ThemeToggle />
+          </div>
         </div>
       </header>
 
