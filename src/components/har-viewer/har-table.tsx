@@ -105,7 +105,7 @@ export function HarTable({ harData }: HarTableProps) {
   
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleTimeString();
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
   };
 
   return (
@@ -141,7 +141,7 @@ export function HarTable({ harData }: HarTableProps) {
         <table className="min-w-full border-separate border-spacing-0 font-mono">
           <thead className="bg-zinc-800 sticky top-0 z-10">
             <tr>
-              <th className="py-3 px-4 text-left text-xs font-medium text-emerald-400 uppercase tracking-wider border-b border-zinc-700 w-24">
+              <th className="py-3 px-4 text-left text-xs font-medium text-emerald-400 uppercase tracking-wider border-b border-zinc-700 w-32">
                 <button
                   className="flex items-center gap-1 hover:text-emerald-300 whitespace-nowrap"
                   onClick={() => requestSort("startedDateTime")}
@@ -241,7 +241,7 @@ export function HarTable({ harData }: HarTableProps) {
                         {entry.response.status} {entry.response.statusText}
                       </span>
                     </td>
-                    <td className="py-3 px-4 text-sm text-zinc-500 w-24 whitespace-nowrap overflow-hidden text-ellipsis">
+                    <td className="py-3 px-4 text-sm text-zinc-500 w-32 whitespace-nowrap overflow-hidden text-ellipsis">
                       {formatTime(entry.time)}
                     </td>
                     <td className="py-3 px-4 text-sm text-zinc-500 w-24 whitespace-nowrap overflow-hidden text-ellipsis">
