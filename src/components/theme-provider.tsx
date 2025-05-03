@@ -30,6 +30,7 @@ export function ThemeProvider({
   children,
   defaultTheme = "system",
   storageKey = "theme",
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   attribute = "data-theme",
   enableSystem = true,
   disableTransitionOnChange = false,
@@ -38,7 +39,6 @@ export function ThemeProvider({
   const [theme, setTheme] = useState<Theme>(defaultTheme)
 
   useEffect(() => {
-    const root = window.document.documentElement
     const savedTheme = localStorage.getItem(storageKey)
 
     if (savedTheme) {

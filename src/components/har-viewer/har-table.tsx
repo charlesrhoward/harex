@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { HarData, HarEntry } from "./har-types";
-import { ChevronDown, ChevronUp, Search, X, Filter } from "lucide-react";
+import { ChevronDown, ChevronUp, Search, X } from "lucide-react";
 
 interface HarTableProps {
   harData: HarData;
@@ -36,8 +36,8 @@ export function HarTable({ harData }: HarTableProps) {
   const sortedEntries = [...filteredEntries].sort((a, b) => {
     if (!sortConfig) return 0;
 
-    let aValue: any;
-    let bValue: any;
+    let aValue: string | number | Date;
+    let bValue: string | number | Date;
 
     // Handle nested properties
     if (sortConfig.key === "request.url") {
@@ -47,8 +47,8 @@ export function HarTable({ harData }: HarTableProps) {
       aValue = a.response.status;
       bValue = b.response.status;
     } else {
-      aValue = a[sortConfig.key as keyof HarEntry];
-      bValue = b[sortConfig.key as keyof HarEntry];
+      aValue = a[sortConfig.key as keyof HarEntry] as string | number;
+      bValue = b[sortConfig.key as keyof HarEntry] as string | number;
     }
 
     // Convert dates to timestamps for comparison
