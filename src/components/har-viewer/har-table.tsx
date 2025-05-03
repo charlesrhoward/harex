@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { HarData, HarEntry } from "./har-types";
 import { ChevronDown, ChevronUp, Search, X } from "lucide-react";
+import { CopyButton } from "./CopyButton";
 
 interface HarTableProps {
   harData: HarData;
@@ -267,25 +268,52 @@ export function HarTable({ harData }: HarTableProps) {
                       <td colSpan={7} className="p-4">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div className="bg-white dark:bg-zinc-900 p-4 rounded-md shadow">
-                            <h3 className="text-sm font-medium mb-2 text-emerald-400">Request Details</h3>
+                            <div className="flex justify-between items-center mb-2">
+                              <h3 className="text-sm font-medium text-emerald-400">Request Details</h3>
+                              <CopyButton 
+                                text={JSON.stringify(entry.request, null, 2)} 
+                                className="hover:bg-zinc-800"
+                              />
+                            </div>
                             <div className="mb-4">
-                              <div className="text-xs text-zinc-500 mb-1">URL</div>
+                              <div className="flex justify-between items-center">
+                                <div className="text-xs text-zinc-500 mb-1">URL</div>
+                                <CopyButton text={entry.request.url} className="hover:bg-zinc-800" />
+                              </div>
                               <div className="text-sm break-all">{entry.request.url}</div>
                             </div>
                             <div className="mb-4">
-                              <h4 className="text-xs text-zinc-500 mb-1">Headers</h4>
+                              <div className="flex justify-between items-center">
+                                <h4 className="text-xs text-zinc-500 mb-1">Headers</h4>
+                                <CopyButton 
+                                  text={entry.request.headers.map(h => `${h.name}: ${h.value}`).join('\n')} 
+                                  className="hover:bg-zinc-800" 
+                                />
+                              </div>
                               <div className="bg-zinc-50 dark:bg-zinc-800 p-2 rounded text-xs font-mono overflow-x-auto">
                                 {entry.request.headers.map((header, i) => (
-                                  <div key={i} className="mb-1">
-                                    <span className="font-medium">{header.name}:</span>{" "}
-                                    {header.value}
+                                  <div key={i} className="mb-1 flex">
+                                    <div className="flex-grow">
+                                      <span className="font-medium">{header.name}:</span>{" "}
+                                      {header.value}
+                                    </div>
+                                    <CopyButton 
+                                      text={`${header.name}: ${header.value}`} 
+                                      className="ml-1 scale-90 hover:bg-zinc-700" 
+                                    />
                                   </div>
                                 ))}
                               </div>
                             </div>
                             {entry.request.postData && (
                               <div>
-                                <h4 className="text-xs text-zinc-500 mb-1">Request Body</h4>
+                                <div className="flex justify-between items-center">
+                                  <h4 className="text-xs text-zinc-500 mb-1">Request Body</h4>
+                                  <CopyButton 
+                                    text={entry.request.postData.text || ''} 
+                                    className="hover:bg-zinc-800" 
+                                  />
+                                </div>
                                 <div className="bg-zinc-50 dark:bg-zinc-800 p-2 rounded text-xs font-mono overflow-x-auto">
                                   <pre>{entry.request.postData.text}</pre>
                                 </div>
@@ -294,27 +322,59 @@ export function HarTable({ harData }: HarTableProps) {
                           </div>
                           
                           <div className="bg-white dark:bg-zinc-900 p-4 rounded-md shadow">
-                            <h3 className="text-sm font-medium mb-2 text-emerald-400">Response Details</h3>
+                            <div className="flex justify-between items-center mb-2">
+                              <h3 className="text-sm font-medium text-emerald-400">Response Details</h3>
+                              <CopyButton 
+                                text={JSON.stringify(entry.response, null, 2)} 
+                                className="hover:bg-zinc-800"
+                              />
+                            </div>
                             <div className="mb-2">
-                              <div className="text-xs text-zinc-500 mb-1">Status</div>
+                              <div className="flex justify-between items-center">
+                                <div className="text-xs text-zinc-500 mb-1">Status</div>
+                                <CopyButton 
+                                  text={`${entry.response.status} ${entry.response.statusText}`}
+                                  className="hover:bg-zinc-800"
+                                />
+                              </div>
                               <div className={`text-sm ${getStatusColor(entry.response.status)}`}>
                                 {entry.response.status} {entry.response.statusText}
                               </div>
                             </div>
                             <div className="mb-4">
-                              <h4 className="text-xs text-zinc-500 mb-1">Headers</h4>
+                              <div className="flex justify-between items-center">
+                                <h4 className="text-xs text-zinc-500 mb-1">Headers</h4>
+                                <CopyButton 
+                                  text={entry.response.headers.map(h => `${h.name}: ${h.value}`).join('\n')} 
+                                  className="hover:bg-zinc-800" 
+                                />
+                              </div>
                               <div className="bg-zinc-50 dark:bg-zinc-800 p-2 rounded text-xs font-mono overflow-x-auto">
                                 {entry.response.headers.map((header, i) => (
-                                  <div key={i} className="mb-1">
-                                    <span className="font-medium">{header.name}:</span>{" "}
-                                    {header.value}
+                                  <div key={i} className="mb-1 flex">
+                                    <div className="flex-grow">
+                                      <span className="font-medium">{header.name}:</span>{" "}
+                                      {header.value}
+                                    </div>
+                                    <CopyButton 
+                                      text={`${header.name}: ${header.value}`} 
+                                      className="ml-1 scale-90 hover:bg-zinc-700" 
+                                    />
                                   </div>
                                 ))}
                               </div>
                             </div>
                             {entry.response.content.text && (
                               <div>
-                                <h4 className="text-xs text-zinc-500 mb-1">Response Body</h4>
+                                <div className="flex justify-between items-center">
+                                  <h4 className="text-xs text-zinc-500 mb-1">Response Body</h4>
+                                  <CopyButton 
+                                    text={entry.response.content.encoding === "base64"
+                                      ? "[Base64 encoded content]"
+                                      : entry.response.content.text || ''} 
+                                    className="hover:bg-zinc-800" 
+                                  />
+                                </div>
                                 <div className="bg-zinc-50 dark:bg-zinc-800 p-2 rounded text-xs font-mono overflow-x-auto max-h-64">
                                   <pre>{
                                     entry.response.content.encoding === "base64"
