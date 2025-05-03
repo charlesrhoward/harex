@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  @apply bg-zinc-900 text-zinc-100 min-h-screen;
+  @apply bg-white text-zinc-800 min-h-screen dark:bg-zinc-900 dark:text-zinc-100;
   font-family: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
 }
 

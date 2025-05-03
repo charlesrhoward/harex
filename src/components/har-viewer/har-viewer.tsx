@@ -15,12 +15,12 @@ export function HarViewer() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-zinc-900 text-zinc-100">
-      <header className="p-4 bg-zinc-800 shadow-md sticky top-0 z-10">
+    <div className="min-h-screen flex flex-col bg-white text-zinc-800 dark:bg-zinc-900 dark:text-zinc-100">
+      <header className="p-4 bg-zinc-100 dark:bg-zinc-800 shadow-md sticky top-0 z-10">
         <div className="container mx-auto flex justify-between items-center">
           <h1 className="text-2xl font-bold flex items-center">
-            <span className="text-emerald-400">Harex</span>
-            <span className="ml-2">- HAR Examiner</span>
+            <span className="text-emerald-400">HAREX</span>
+            <span className="ml-2">- The HAR Examiner</span>
           </h1>
           <div className="flex items-center gap-3">
             <a 
@@ -61,9 +61,9 @@ export function HarViewer() {
         </div>
       </main>
 
-      <footer className="p-4 bg-zinc-800 mt-auto">
+      <footer className="p-4 bg-zinc-100 dark:bg-zinc-800 mt-auto">
         <div className="container mx-auto text-center">
-          <p className="text-sm text-zinc-400">
+          <p className="text-sm text-zinc-500 dark:text-zinc-400">
             Harex - HAR Examiner | A tool for analyzing HTTP Archive (HAR) files
           </p>
         </div>
