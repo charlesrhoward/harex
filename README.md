@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Harex - HAR Examiner
+
+Harex is an open-source HAR (HTTP Archive) file examiner built with Next.js and Tailwind CSS. It allows you to easily analyze network requests and responses from HAR files with a modern, responsive interface.
+
+![Harex Screenshot](https://github.com/charlesrhoward/harex/raw/main/public/screenshot.png)
+
+## Features
+
+- **Simple HAR file uploading**: Drag and drop or select HAR files to analyze
+- **Detailed request/response inspection**: View URLs, headers, status codes, and bodies
+- **Click-to-copy functionality**: Easily copy any part of a request or response with a single click
+- **Dark mode support**: Toggle between light and dark themes
+- **Filter and search**: Quickly find specific requests in large HAR files
+- **Table sorting**: Sort requests by time, URL, status, or duration
+- **Mobile responsive**: Works on devices of all sizes
 
 ## Getting Started
 
 First, run the development server:
 
 ```bash
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How to Use
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Upload a HAR file using the drag-and-drop area or file selector
+2. Browse through the list of network requests
+3. Click on a request to view detailed information
+4. Use the copy buttons to copy request/response data as needed
+5. Use the filter box to search for specific requests
 
-## Learn More
+## Technologies Used
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js](https://nextjs.org) - React framework
+- [Tailwind CSS](https://tailwindcss.com) - Utility-first CSS framework
+- [Lucide Icons](https://lucide.dev) - Beautiful, consistent icons
+- [TypeScript](https://typescriptlang.org) - Type-safe JavaScript
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project is licensed under the [MIT License](LICENSE) - see the LICENSE file for details.
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Contributions are welcome! Feel free to open issues or submit pull requests to improve the application.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Acknowledgments
+
+- Inspired by various developer tools and HAR viewers
+- Built with modern web technologies for a great user experience
