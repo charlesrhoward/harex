@@ -17,7 +17,7 @@ export function HarViewer() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-zinc-800 dark:bg-zinc-950 dark:text-zinc-100">
-      <header className="sticky top-0 z-10 backdrop-blur-sm bg-slate-900/10 dark:bg-slate-900/20 border-b border-zinc-200 dark:border-zinc-800">
+      <header className="sticky top-0 z-10 backdrop-blur-sm bg-slate-900/10 dark:bg-zinc-900/10 border-b border-zinc-200 dark:border-zinc-800">
         <div className="relative flex justify-between h-16 mx-auto lg:container lg:px-16 xl:px-20">
           <div className="flex items-center px-6 lg:px-0 flex-1 sm:items-stretch justify-between">
             <div className="flex items-center">
