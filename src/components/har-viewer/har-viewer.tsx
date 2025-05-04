@@ -44,7 +44,7 @@ export function HarViewer() {
                 href="https://github.com/charlesrhoward/harex" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="relative justify-center cursor-pointer items-center space-x-2 text-center font-regular ease-out duration-200 rounded-md outline-none transition-all outline-0 focus-visible:outline-4 focus-visible:outline-offset-1 border hover:bg-zinc-300 dark:hover:bg-zinc-700 shadow-none border-transparent text-xs px-2.5 py-1 h-[26px] hidden lg:flex text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-100"
+                className="relative justify-center cursor-pointer items-center space-x-2 text-center font-regular ease-out duration-200 rounded-md outline-none transition-all outline-0 focus-visible:outline-4 focus-visible:outline-offset-1 border hover:bg-zinc-300 dark:hover:bg-zinc-700 shadow-none border-transparent text-xs px-2.5 py-1 h-[26px] flex text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-100"
                 aria-label="View source on GitHub"
                 title="View source on GitHub"
               >
@@ -55,14 +55,7 @@ export function HarViewer() {
               <ThemeToggle />
             </div>
           </div>
-          <div className="inset-y-0 flex mr-2 items-center px-4 lg:hidden">
-            <button className="text-zinc-400 hover:text-zinc-100 transition-colors hover:bg-zinc-700 inline-flex items-center justify-center rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-inset" aria-expanded="false">
-              <span className="sr-only">Open main menu</span>
-              <svg className="block w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
-              </svg>
-            </button>
-          </div>
+          {/* Mobile menu button removed */}
         </div>
       </header>
 
