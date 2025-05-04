@@ -16,8 +16,26 @@ const firaCode = Fira_Code({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000'),
   title: "HAREX - HAR Examiner",
   description: "A tool for analyzing HTTP Archive (HAR) files",
+  openGraph: {
+    title: "HAREX - HAR Examiner",
+    description: "A powerful tool for analyzing HTTP Archive (HAR) files",
+    images: [{
+      url: "/open-graph.png",
+      width: 1200,
+      height: 630,
+      alt: "HAREX - HAR Examiner",
+    }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "HAREX - HAR Examiner",
+    description: "A powerful tool for analyzing HTTP Archive (HAR) files",
+    images: ["/open-graph.png"],
+  },
 };
 
 export default function RootLayout({
