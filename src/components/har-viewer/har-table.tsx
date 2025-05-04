@@ -80,7 +80,7 @@ export function HarTable({ harData }: HarTableProps) {
   };
 
   const getStatusColor = (status: number) => {
-    if (status >= 200 && status < 300) return "text-emerald-400";
+    if (status >= 200 && status < 300) return "text-emerald-600 dark:text-emerald-400";
     if (status >= 300 && status < 400) return "text-blue-400";
     if (status >= 400 && status < 500) return "text-amber-400";
     if (status >= 500) return "text-red-500";
@@ -139,22 +139,26 @@ export function HarTable({ harData }: HarTableProps) {
 
       <div className="overflow-x-auto pb-6 rounded-lg border border-zinc-700 shadow-xl">
         <table className="min-w-full border-separate border-spacing-0 font-mono">
-          <thead className="bg-zinc-800 sticky top-0 z-10">
+          <thead className="bg-zinc-100 dark:bg-zinc-800">
             <tr>
-              <th className="py-3 px-4 text-left text-xs font-medium text-emerald-400 uppercase tracking-wider border-b border-zinc-700 w-32">
+              <th className="py-3 px-4 text-left text-xs font-medium text-emerald-600 dark:text-emerald-400 uppercase tracking-wider border-b border-zinc-200 dark:border-zinc-700">
                 <button
-                  className="flex items-center gap-1 hover:text-emerald-300 whitespace-nowrap"
+                  className="flex items-center cursor-pointer focus:outline-none"
                   onClick={() => requestSort("startedDateTime")}
                 >
-                  Time
+                  <span>Time</span>
                   {sortConfig?.key === "startedDateTime" && (
-                    sortConfig.direction === "ascending" ? 
-                      <ChevronUp className="w-4 h-4" /> : 
-                      <ChevronDown className="w-4 h-4" />
+                    <span className="ml-1">
+                      {sortConfig.direction === "ascending" ? (
+                        <ChevronUp className="w-4 h-4" />
+                      ) : (
+                        <ChevronDown className="w-4 h-4" />
+                      )}
+                    </span>
                   )}
                 </button>
               </th>
-              <th className="py-3 px-4 text-left text-xs font-medium text-emerald-400 uppercase tracking-wider border-b border-zinc-700">
+              <th className="py-3 px-4 text-left text-xs font-medium text-emerald-600 dark:text-emerald-400 uppercase tracking-wider border-b border-zinc-200 dark:border-zinc-700">
                 <button
                   className="flex items-center gap-1 hover:text-emerald-300"
                   onClick={() => requestSort("request.url")}
@@ -167,12 +171,12 @@ export function HarTable({ harData }: HarTableProps) {
                   )}
                 </button>
               </th>
-              <th className="py-3 px-4 text-left text-xs font-medium text-emerald-400 uppercase tracking-wider border-b border-zinc-700">
+              <th className="py-3 px-4 text-left text-xs font-medium text-emerald-600 dark:text-emerald-400 uppercase tracking-wider border-b border-zinc-200 dark:border-zinc-700">
                 Method
               </th>
-              <th className="py-3 px-4 text-left text-xs font-medium text-emerald-400 uppercase tracking-wider border-b border-zinc-700">
+              <th className="py-3 px-4 text-left text-xs font-medium text-emerald-600 dark:text-emerald-400 uppercase tracking-wider border-b border-zinc-200 dark:border-zinc-700">
                 <button
-                  className="flex items-center gap-1 hover:text-emerald-300"
+                  className="flex items-center gap-1 hover:text-emerald-500 dark:hover:text-emerald-300"
                   onClick={() => requestSort("response.status")}
                 >
                   Status
@@ -183,9 +187,9 @@ export function HarTable({ harData }: HarTableProps) {
                   )}
                 </button>
               </th>
-              <th className="py-3 px-4 text-left text-xs font-medium text-emerald-400 uppercase tracking-wider border-b border-zinc-700 w-24">
+              <th className="py-3 px-4 text-left text-xs font-medium text-emerald-600 dark:text-emerald-400 uppercase tracking-wider border-b border-zinc-200 dark:border-zinc-700 w-24">
                 <button
-                  className="flex items-center gap-1 hover:text-emerald-300 whitespace-nowrap"
+                  className="flex items-center gap-1 hover:text-emerald-500 dark:hover:text-emerald-300 whitespace-nowrap"
                   onClick={() => requestSort("time")}
                 >
                   Duration
@@ -196,15 +200,15 @@ export function HarTable({ harData }: HarTableProps) {
                   )}
                 </button>
               </th>
-              <th className="py-3 px-4 text-left text-xs font-medium text-emerald-400 uppercase tracking-wider border-b border-zinc-700 w-24 whitespace-nowrap">
+              <th className="py-3 px-4 text-left text-xs font-medium text-emerald-600 dark:text-emerald-400 uppercase tracking-wider border-b border-zinc-200 dark:border-zinc-700 w-24 whitespace-nowrap">
                 Size
               </th>
-              <th className="py-3 px-4 text-center text-xs font-medium text-emerald-400 uppercase tracking-wider border-b border-zinc-700">
+              <th className="py-3 px-4 text-center text-xs font-medium text-emerald-600 dark:text-emerald-400 uppercase tracking-wider border-b border-zinc-200 dark:border-zinc-700">
                 Details
               </th>
             </tr>
           </thead>
-          <tbody className="bg-zinc-900 divide-y divide-zinc-800">
+          <tbody className="bg-white dark:bg-zinc-900 divide-y divide-zinc-200 dark:divide-zinc-800">
             {sortedEntries.map((entry, index) => {
               const isExpanded = expandedRow === `${index}`;
               const url = new URL(entry.request.url);
@@ -213,7 +217,7 @@ export function HarTable({ harData }: HarTableProps) {
               return (
                 <React.Fragment key={index}>
                   <tr 
-                    className={`hover:bg-zinc-50 dark:hover:bg-zinc-800 ${
+                    className={`hover:bg-zinc-50 dark:hover:bg-zinc-200 dark:hover:bg-zinc-800 ${
                       isExpanded ? "bg-zinc-50 dark:bg-zinc-800" : ""
                     }`}
                   >
@@ -230,7 +234,7 @@ export function HarTable({ harData }: HarTableProps) {
                         entry.request.method === "GET" 
                           ? "text-blue-500 dark:text-blue-400" 
                           : entry.request.method === "POST"
-                          ? "text-emerald-500 dark:text-emerald-400"
+                          ? "text-emerald-500 dark:text-emerald-600 dark:text-emerald-400"
                           : "text-amber-500 dark:text-amber-400"
                       }>
                         {entry.request.method}
@@ -249,14 +253,14 @@ export function HarTable({ harData }: HarTableProps) {
                     </td>
                     <td className="py-3 px-4 text-sm text-center">
                       <button
-                        className="p-1 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-700"
+                        className="p-1 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-200 dark:hover:bg-zinc-700"
                         onClick={() => 
                           setExpandedRow(isExpanded ? null : `${index}`)
                         }
                         aria-label={isExpanded ? "Collapse" : "Expand"}
                       >
                         {isExpanded ? (
-                          <ChevronUp className="w-5 h-5 text-emerald-400" />
+                          <ChevronUp className="w-5 h-5 text-emerald-600 dark:text-emerald-600 dark:text-emerald-400" />
                         ) : (
                           <ChevronDown className="w-5 h-5 text-zinc-400" />
                         )}
@@ -264,18 +268,18 @@ export function HarTable({ harData }: HarTableProps) {
                     </td>
                   </tr>
                   {isExpanded && (
-                    <tr className="bg-zinc-50 dark:bg-zinc-800">
+                    <tr className="bg-zinc-100 dark:bg-zinc-800">
                       <td colSpan={7} className="p-4">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div className="bg-white dark:bg-zinc-900 p-4 rounded-md shadow">
                             <div className="mb-2">
-                              <h3 className="text-sm font-medium text-emerald-400">Request Details</h3>
+                              <h3 className="text-sm font-medium text-emerald-600 dark:text-emerald-600 dark:text-emerald-400">Request Details</h3>
                             </div>
                             <div className="mb-4">
                               <div className="text-xs text-zinc-500 mb-1">URL</div>
                               <div className="text-sm flex justify-between items-start gap-2">
                                 <span className="overflow-hidden text-ellipsis break-all pr-2" style={{wordBreak: 'break-word'}}>{entry.request.url}</span>
-                                <CopyButton text={entry.request.url} className="hover:bg-zinc-800 flex-shrink-0 mt-1" />
+                                <CopyButton text={entry.request.url} className="hover:bg-zinc-200 dark:hover:bg-zinc-200 dark:hover:bg-zinc-800 flex-shrink-0 mt-1" />
                               </div>
                             </div>
                             <div className="mb-4">
@@ -283,10 +287,10 @@ export function HarTable({ harData }: HarTableProps) {
                               <div className="flex justify-end mb-1">
                                 <CopyButton 
                                   text={entry.request.headers.map(h => `${h.name}: ${h.value}`).join('\n')} 
-                                  className="hover:bg-zinc-800" 
+                                  className="hover:bg-zinc-200 dark:hover:bg-zinc-200 dark:hover:bg-zinc-800" 
                                 />
                               </div>
-                              <div className="bg-zinc-50 dark:bg-zinc-800 p-2 rounded text-xs font-mono overflow-x-auto max-h-80 overflow-y-auto">
+                              <div className="bg-zinc-100 dark:bg-zinc-800 p-2 rounded text-xs font-mono overflow-x-auto max-h-80 overflow-y-auto">
                                 {entry.request.headers.map((header, i) => (
                                   <div key={i} className="mb-1 flex items-start gap-2">
                                     <div className="flex-grow overflow-hidden pr-2">
@@ -295,7 +299,7 @@ export function HarTable({ harData }: HarTableProps) {
                                     </div>
                                     <CopyButton 
                                       text={`${header.name}: ${header.value}`} 
-                                      className="flex-shrink-0 scale-90 hover:bg-zinc-700" 
+                                      className="flex-shrink-0 scale-90 hover:bg-zinc-200 dark:hover:bg-zinc-700" 
                                     />
                                   </div>
                                 ))}
@@ -307,10 +311,10 @@ export function HarTable({ harData }: HarTableProps) {
                                 <div className="flex justify-end mb-1">
                                   <CopyButton 
                                     text={entry.request.postData.text || ''} 
-                                    className="hover:bg-zinc-800" 
+                                    className="hover:bg-zinc-200 dark:hover:bg-zinc-800" 
                                   />
                                 </div>
-                                <div className="bg-zinc-50 dark:bg-zinc-800 p-2 rounded text-xs font-mono overflow-x-auto max-h-80 overflow-y-auto">
+                                <div className="bg-zinc-100 dark:bg-zinc-800 p-2 rounded text-xs font-mono overflow-x-auto max-h-80 overflow-y-auto">
                                   <pre>{entry.request.postData.text}</pre>
                                 </div>
                               </div>
@@ -319,7 +323,7 @@ export function HarTable({ harData }: HarTableProps) {
                           
                           <div className="bg-white dark:bg-zinc-900 p-4 rounded-md shadow">
                             <div className="mb-2">
-                              <h3 className="text-sm font-medium text-emerald-400">Response Details</h3>
+                              <h3 className="text-sm font-medium text-emerald-600 dark:text-emerald-400">Response Details</h3>
                             </div>
                             <div className="mb-2">
                               <div className="text-xs text-zinc-500 mb-1">Status</div>
@@ -327,7 +331,7 @@ export function HarTable({ harData }: HarTableProps) {
                                 <span className="overflow-hidden text-ellipsis">{entry.response.status} {entry.response.statusText}</span>
                                 <CopyButton 
                                   text={`${entry.response.status} ${entry.response.statusText}`}
-                                  className="hover:bg-zinc-800 flex-shrink-0"
+                                  className="hover:bg-zinc-200 dark:hover:bg-zinc-800 flex-shrink-0"
                                 />
                               </div>
                             </div>
@@ -336,10 +340,10 @@ export function HarTable({ harData }: HarTableProps) {
                               <div className="flex justify-end mb-1">
                                 <CopyButton 
                                   text={entry.response.headers.map(h => `${h.name}: ${h.value}`).join('\n')} 
-                                  className="hover:bg-zinc-800" 
+                                  className="hover:bg-zinc-200 dark:hover:bg-zinc-800" 
                                 />
                               </div>
-                              <div className="bg-zinc-50 dark:bg-zinc-800 p-2 rounded text-xs font-mono overflow-x-auto max-h-80 overflow-y-auto">
+                              <div className="bg-zinc-100 dark:bg-zinc-800 p-2 rounded text-xs font-mono overflow-x-auto max-h-80 overflow-y-auto">
                                 {entry.response.headers.map((header, i) => (
                                   <div key={i} className="mb-1 flex items-start gap-2">
                                     <div className="flex-grow overflow-hidden pr-2">
@@ -348,7 +352,7 @@ export function HarTable({ harData }: HarTableProps) {
                                     </div>
                                     <CopyButton 
                                       text={`${header.name}: ${header.value}`} 
-                                      className="flex-shrink-0 scale-90 hover:bg-zinc-700" 
+                                      className="flex-shrink-0 scale-90 hover:bg-zinc-200 dark:hover:bg-zinc-700" 
                                     />
                                   </div>
                                 ))}
@@ -362,10 +366,10 @@ export function HarTable({ harData }: HarTableProps) {
                                     text={entry.response.content.encoding === "base64"
                                       ? "[Base64 encoded content]"
                                       : entry.response.content.text || ''} 
-                                    className="hover:bg-zinc-800" 
+                                    className="hover:bg-zinc-200 dark:hover:bg-zinc-800" 
                                   />
                                 </div>
-                                <div className="bg-zinc-50 dark:bg-zinc-800 p-2 rounded text-xs font-mono overflow-x-auto max-h-64">
+                                <div className="bg-zinc-100 dark:bg-zinc-800 p-2 rounded text-xs font-mono overflow-x-auto max-h-64">
                                   <pre>{
                                     entry.response.content.encoding === "base64"
                                       ? "[Base64 encoded content]"
