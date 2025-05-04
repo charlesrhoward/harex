@@ -273,8 +273,8 @@ export function HarTable({ harData }: HarTableProps) {
                             </div>
                             <div className="mb-4">
                               <div className="text-xs text-zinc-500 mb-1">URL</div>
-                              <div className="text-sm break-all flex justify-between items-start">
-                                <span className="mr-2">{entry.request.url}</span>
+                              <div className="text-sm flex justify-between items-start gap-2">
+                                <span className="overflow-hidden text-ellipsis break-all pr-2" style={{wordBreak: 'break-word'}}>{entry.request.url}</span>
                                 <CopyButton text={entry.request.url} className="hover:bg-zinc-800 flex-shrink-0 mt-1" />
                               </div>
                             </div>
@@ -286,16 +286,16 @@ export function HarTable({ harData }: HarTableProps) {
                                   className="hover:bg-zinc-800" 
                                 />
                               </div>
-                              <div className="bg-zinc-50 dark:bg-zinc-800 p-2 rounded text-xs font-mono overflow-x-auto">
+                              <div className="bg-zinc-50 dark:bg-zinc-800 p-2 rounded text-xs font-mono overflow-x-auto max-h-80 overflow-y-auto">
                                 {entry.request.headers.map((header, i) => (
-                                  <div key={i} className="mb-1 flex">
-                                    <div className="flex-grow">
+                                  <div key={i} className="mb-1 flex items-start gap-2">
+                                    <div className="flex-grow overflow-hidden pr-2">
                                       <span className="font-medium">{header.name}:</span>{" "}
-                                      {header.value}
+                                      <span className="break-all" style={{wordBreak: 'break-word'}}>{header.value}</span>
                                     </div>
                                     <CopyButton 
                                       text={`${header.name}: ${header.value}`} 
-                                      className="ml-1 scale-90 hover:bg-zinc-700" 
+                                      className="flex-shrink-0 scale-90 hover:bg-zinc-700" 
                                     />
                                   </div>
                                 ))}
@@ -310,7 +310,7 @@ export function HarTable({ harData }: HarTableProps) {
                                     className="hover:bg-zinc-800" 
                                   />
                                 </div>
-                                <div className="bg-zinc-50 dark:bg-zinc-800 p-2 rounded text-xs font-mono overflow-x-auto">
+                                <div className="bg-zinc-50 dark:bg-zinc-800 p-2 rounded text-xs font-mono overflow-x-auto max-h-80 overflow-y-auto">
                                   <pre>{entry.request.postData.text}</pre>
                                 </div>
                               </div>
@@ -323,11 +323,11 @@ export function HarTable({ harData }: HarTableProps) {
                             </div>
                             <div className="mb-2">
                               <div className="text-xs text-zinc-500 mb-1">Status</div>
-                              <div className={`text-sm ${getStatusColor(entry.response.status)} flex justify-between items-center`}>
-                                <span>{entry.response.status} {entry.response.statusText}</span>
+                              <div className={`text-sm ${getStatusColor(entry.response.status)} flex justify-between items-center gap-2`}>
+                                <span className="overflow-hidden text-ellipsis">{entry.response.status} {entry.response.statusText}</span>
                                 <CopyButton 
                                   text={`${entry.response.status} ${entry.response.statusText}`}
-                                  className="hover:bg-zinc-800"
+                                  className="hover:bg-zinc-800 flex-shrink-0"
                                 />
                               </div>
                             </div>
@@ -339,16 +339,16 @@ export function HarTable({ harData }: HarTableProps) {
                                   className="hover:bg-zinc-800" 
                                 />
                               </div>
-                              <div className="bg-zinc-50 dark:bg-zinc-800 p-2 rounded text-xs font-mono overflow-x-auto">
+                              <div className="bg-zinc-50 dark:bg-zinc-800 p-2 rounded text-xs font-mono overflow-x-auto max-h-80 overflow-y-auto">
                                 {entry.response.headers.map((header, i) => (
-                                  <div key={i} className="mb-1 flex">
-                                    <div className="flex-grow">
+                                  <div key={i} className="mb-1 flex items-start gap-2">
+                                    <div className="flex-grow overflow-hidden pr-2">
                                       <span className="font-medium">{header.name}:</span>{" "}
-                                      {header.value}
+                                      <span className="break-all" style={{wordBreak: 'break-word'}}>{header.value}</span>
                                     </div>
                                     <CopyButton 
                                       text={`${header.name}: ${header.value}`} 
-                                      className="ml-1 scale-90 hover:bg-zinc-700" 
+                                      className="flex-shrink-0 scale-90 hover:bg-zinc-700" 
                                     />
                                   </div>
                                 ))}
