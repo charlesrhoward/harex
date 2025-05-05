@@ -112,11 +112,11 @@ export function HarTable({ harData }: HarTableProps) {
     <div className="mt-6">
       <div className="flex flex-col sm:flex-row justify-between gap-4 mb-6">
         <div className="relative flex-1 max-w-lg">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-zinc-400" />
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-zinc-500 dark:text-zinc-400" />
           <input
             type="text"
             placeholder="Filter requests..."
-            className="pl-10 pr-10 py-2 rounded-md bg-zinc-800 text-zinc-100 w-full focus:outline-none focus:ring-2 focus:ring-emerald-400 border border-zinc-700 font-mono"
+            className="pl-10 pr-10 py-2 rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-100 w-full focus:outline-none focus:ring-2 focus:ring-emerald-600 dark:focus:ring-emerald-400 border border-zinc-300 dark:border-zinc-700 font-mono"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -125,7 +125,7 @@ export function HarTable({ harData }: HarTableProps) {
               className="absolute right-3 top-1/2 transform -translate-y-1/2"
               onClick={() => setSearchTerm("")}
             >
-              <X className="w-4 h-4 text-zinc-400" />
+              <X className="w-4 h-4 text-zinc-500 dark:text-zinc-400" />
             </button>
           )}
         </div>
