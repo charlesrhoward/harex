@@ -17,7 +17,7 @@ export function HarViewer() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-zinc-800 dark:bg-zinc-950 dark:text-zinc-100">
-      <header className="sticky top-0 z-10 backdrop-blur-sm bg-slate-900/10 dark:bg-zinc-900/10 border-b border-zinc-200 dark:border-zinc-800">
+      <header className="sticky top-0 z-10 backdrop-blur-sm bg-zinc-100/10 dark:bg-zinc-900/10 border-b border-zinc-200 dark:border-zinc-800">
         <div className="relative flex justify-between h-16 mx-auto lg:container lg:px-16 xl:px-20">
           <div className="flex items-center px-6 lg:px-0 flex-1 sm:items-stretch justify-between">
             <div className="flex items-center">
@@ -86,6 +86,9 @@ export function HarViewer() {
         <div className="container mx-auto text-center">
           <p className="text-sm text-zinc-500 dark:text-zinc-400">
             Harex - HAR Examiner | A tool for analyzing HTTP Archive (HAR) files
+          </p>
+          <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">
+            Created by Webrenew — an open-source project, free for anyone to use and build upon.
           </p>
         </div>
       </footer>
