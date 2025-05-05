@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
+import { Footer } from '../../../components/footer';
 
 export default function LegalPage() {
   const params = useParams();
@@ -74,16 +75,7 @@ export default function LegalPage() {
         </div>
       </main>
 
-      <footer className="p-4 mt-auto">
-        <div className="container mx-auto text-center">
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">
-            Harex - HAR Examiner | A tool for analyzing HTTP Archive (HAR) files
-          </p>
-          <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">
-            Created by Webrenew — an open-source project, free for anyone to use and build upon.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

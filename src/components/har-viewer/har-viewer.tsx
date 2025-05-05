@@ -2,11 +2,12 @@
 
 import React, { useState } from "react";
 import { HarUploader } from "./har-uploader";
-import { HarTable } from "./har-table";
 import { HarData } from "./har-types";
 import { ThemeToggle } from "../theme-toggle";
-import { Github } from "lucide-react";
+import { HarTable } from "./har-table";
 import Link from "next/link";
+import { Github } from "lucide-react";
+import { Footer } from "../footer";
 
 export function HarViewer() {
   const [harData, setHarData] = useState<HarData | null>(null);
@@ -82,34 +83,7 @@ export function HarViewer() {
         </div>
       </main>
 
-      <footer className="p-4 mt-auto">
-        <div className="container mx-auto text-center">
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">
-            Harex - HAR Examiner | A tool for analyzing HTTP Archive (HAR) files
-          </p>
-          <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">
-            Created by <a href="https://webrenew.com" target="_blank" rel="noopener noreferrer" className="underline">Webrenew</a> — an open-source project, free for anyone to use and build upon.
-          </p>
-          <div className="flex justify-center mt-3 space-x-4">
-            <a 
-              href="/legal/privacy" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
-            >
-              Privacy Policy
-            </a>
-            <a 
-              href="/legal/terms" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
-            >
-              Terms of Use
-            </a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
