@@ -1,0 +1,9 @@
+Privacy Policy
+
+We don't collect or store any data.
+
+All HAR file data stays entirely on your device. This tool processes files in your browser using local storage only. Nothing is uploaded, logged, or shared.
+
+We don't use cookies, analytics, or any third-party trackers.
+
+If you have questions, reach out at contact@webrenew.io
